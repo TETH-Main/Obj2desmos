@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBJ2Desmos</title>
+  <link rel="stylesheet" href="https://teth-main.github.io/GraTeX/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>OBJ2Desmos</h1>
+    <div id="drop-area" class="drop-area">
+      <p>Select or drag & drop an OBJ file</p>
+      <input type="file" id="fileElem" accept=".obj" style="display:none">
+      <button id="fileSelect" class="btn">Choose File</button>
+    </div>
+    <div class="preview-section">
+      <label for="objText">OBJ File Preview (editable)</label>
+      <textarea id="objText" rows="10"></textarea>
+    </div>
+    <div class="convert-row" style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+      <button id="convertBtn" class="btn btn-primary">Convert</button>
+      <div class="realtime-section" style="margin-bottom: 0;">
+        <input type="checkbox" id="realtimeCheckbox">
+        <label for="realtimeCheckbox" style="font-size:0.9em">Realtime Convert</label>
+      </div>
+    </div>
+    <div class="tab-switch" style="display: flex; gap: 8px; margin-bottom: 1em;">
+      <button id="tab-tables" class="tab-btn active" type="button">Tables</button>
+      <button id="tab-lists" class="tab-btn" type="button">Lists</button>
+    </div>
+    <div id="panel-tables">
+      <div class="output-section">
+        <div class="output-row">
+          <div class="output-block">
+            <div class="output-header">
+              <h3>Vertices</h3>
+              <button class="copy-btn btn" title="Copy" data-target="vertexOutput" aria-label="Copy vertices"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="5" y="5" width="10" height="12" rx="2" stroke="#555" stroke-width="1.5"/><rect x="8" y="3" width="9" height="12" rx="2" fill="none" stroke="#bbb" stroke-width="1.2"/></svg></button>
+            </div>
+            <pre id="vertexOutput"></pre>
+          </div>
+          <div class="output-block">
+            <div class="output-header">
+              <h3>Edges</h3>
+              <button class="copy-btn btn" title="Copy" data-target="edgeOutput" aria-label="Copy edges"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="5" y="5" width="10" height="12" rx="2" stroke="#555" stroke-width="1.5"/><rect x="8" y="3" width="9" height="12" rx="2" fill="none" stroke="#bbb" stroke-width="1.2"/></svg></button>
+            </div>
+            <pre id="edgeOutput"></pre>
+          </div>
+          <div class="output-block">
+            <div class="output-header">
+              <h3>Faces</h3>
+              <button class="copy-btn btn" title="Copy" data-target="faceOutput" aria-label="Copy faces"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="5" y="5" width="10" height="12" rx="2" stroke="#555" stroke-width="1.5"/><rect x="8" y="3" width="9" height="12" rx="2" fill="none" stroke="#bbb" stroke-width="1.2"/></svg></button>
+            </div>
+            <pre id="faceOutput"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="panel-lists" style="display:none;">
+      <div class="output-block" style="margin:0 auto; max-width:900px;">
+        <div class="output-header">
+          <h3>LaTeX Lists</h3>
+          <button class="copy-btn btn" id="copyLatexListBtn" title="Copy" data-target="latexListOutput" aria-label="Copy LaTeX lists"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="5" y="5" width="10" height="12" rx="2" stroke="#555" stroke-width="1.5"/><rect x="8" y="3" width="9" height="12" rx="2" fill="none" stroke="#bbb" stroke-width="1.2"/></svg></button>
+        </div>
+        <pre id="latexListOutput" style="font-size:1em;"></pre>
+      </div>
+    </div>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
